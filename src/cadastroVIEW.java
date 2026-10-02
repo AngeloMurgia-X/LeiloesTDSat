@@ -140,16 +140,20 @@ public class cadastroVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroNomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        ProdutosDTO produto = new ProdutosDTO();
-        String nome = cadastroNome.getText();
-        String valor = cadastroValor.getText();
-        String status = "A Venda";
-        produto.setNome(nome);
-        produto.setValor(Integer.parseInt(valor));
-        produto.setStatus(status);
-        
-        ProdutosDAO produtodao = new ProdutosDAO();
-        produtodao.cadastrarProduto(produto);
+// 1. Captura os dados digitados na tela
+String nome = cadastroNome.getText(); 
+String valor = cadastroValor.getText();
+String status = "A Venda"; 
+
+// 2. Cria o objeto e envia os dados para ele
+ProdutosDTO produto = new ProdutosDTO();
+produto.setNome(nome);
+produto.setValor(Integer.parseInt(valor));
+produto.setStatus(status);
+
+// 3. Chama a classe DAO para gravar no banco
+ProdutosDAO produtodao = new ProdutosDAO();
+produtodao.cadastrarProduto(produto);
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
